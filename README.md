@@ -32,4 +32,6 @@ leader说：你使用react开发，样式管理使用什么
 
 leader说：那你说说想要盒子`水平垂直居中`怎么实现
 > 前端小月月说：这种需求在我之前的项目当中非常常见，刚开始的时候使用定位解决，后来随着CSS3的兴起，觉得Flex实现特别方便，尤其是在之前官网开发时在移动端使用起来也非常好，还有一种不常用的，是在看掘金的时候发现的，用display：table-cell也可以实现
-如果是面试（笔试的话）
+
+> 如果是面试（笔试的话）https://github.com/XinYueXiao/interviewHighlights/tree/master/CSS
+
