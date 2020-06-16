@@ -55,6 +55,18 @@ leader说：你使用react开发，样式管理使用什么
 
 前端小月月说：需要看页面设计，如果消失后不占用原来div的位置可以使用简单的属性例如`display:none`，如果占用位置可以使用`visibility:hidden`、`transform: scale(0)`、`opacity:0`等,还有一些不常用的可以设置`width:0`，和`overflow:hidden`等
 
+> 如果是面试（笔试的话）https://github.com/XinYueXiao/interviewHighlights/tree/master/CSS/divhidden.html
+
 ## leader问：请说明z-index的工作原理，适用范围
 
-## 谈谈你对html5的理解
+## leader问：谈谈你对html5的理解
+
+## leader问：如何让一个div里面的文字垂直居中,且该文字的大小根据屏幕的大小自适应
+
+## leader问：不考虑其他因素,下面哪种的渲染性能比较高?
+
+```css
+    .box a{  }
+    a{  }
+```
+前端小月月：第二种，因为CCS选择器从右向左查询，第一种需要找到所有的a标签,再找box下所有a。
