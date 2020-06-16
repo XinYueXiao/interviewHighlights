@@ -4,140 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>盒子水平垂直居中怎么实现</title>
+    <title>左右固定，中间自适应</title>
     <style>
-        .box-die1,
-        .box-die2 {
-            position: relative;
-            height: 400px;
-            border: 1px solid #ddd;
-        }
-
-        .width-hight-know1 {
-            position: absolute;
-            height: 200px;
-            width: 260px;
-            background: pink;
-            top: 50%;
-            left: 50%;
-            margin-left: -130px;
-            /*width/2  */
-            margin-top: -100px;
-            /* hight/2 */
-        }
-
-        .width-hight-know2 {
-            position: absolute;
-            height: 200px;
-            width: 260px;
-            background: pink;
-            top: 0px;
-            left: 0px;
-            right: 0px;
-            bottom: 0px;
-            margin: auto;
-        }
-
-        .width-hight-no {
-            position: absolute;
-            background: pink;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .box-die2 {
+        .row-line-flex {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
+            height: 100%;
         }
 
-        .table-cell {
-            display: table-cell;
-            vertical-align: middle;
-            text-align: center;
-            width: 800px;
+        .flex-left,
+        .flex-right {
+            flex: 0 0 200px;
             height: 200px;
-            background: green;
+            background: burlywood;
         }
 
-        .inline-box {
-            display: inline-block;
+        .flex-center {
+            flex: 1;
+            min-height: 400px;
             background: pink;
+        }
+
+        .row-line-position {
+            position: relative;
+        }
+
+        .position-left,
+        .position-right {
+            position: absolute;
+            top: 0;
+            width: 200px;
+            min-height: 200px;
+            background: plum;
+        }
+
+        .position-left {
+            left: 0
+        }
+
+        .position-right {
+            right: 0
+        }
+
+        .position-center {
+            margin: 0px 200px;
+            min-height: 400px;
+            background: powderblue;
         }
     </style>
-
 </head>
 
 <body>
-    <h1>使用定位</h1>
-    <h3>已知内部盒子大小</h3>
-    <div class="box-die1">
-        position: relative;<br />
-        height: 400px;<br />
-        border: 1px solid #ddd;<br />
-        <div class="width-hight-know1">
+    <h1>使用定位position,最外层样式 position: relative;</h1>
+    <div class="row-line-position">
+        <div class="position-left">
             position: absolute;<br />
-            height: 200px;<br />
-            width: 260px;<br />
-            background: pink;<br />
-            top: 50%;<br />
-            left: 50%;<br />
-            margin-left: -130px;（width/2）<br />
-            margin-top: -100px;（hight/2）<br />
+            top: 0;<br />
+            width: 200px;<br />
+            min-height: 200px;<br />
+            background: plum;<br />
+            left: 0<br />
+        </div>
+        <div class="position-center">
+            margin: 0px 200px;<br />
+            min-height: 400px;<br />
+            background: powderblue;<br />
+        </div>
+        <div class="position-right">
+            position: absolute;<br />
+            top: 0;<br />
+            width: 200px;<br />
+            min-height: 200px;<br />
+            background: plum;<br />
+            right: 0<br />
         </div>
     </div>
-    <h3>已知内部盒子大小</h3>
-    <div class="box-die1">
-        position: relative;<br />
-        height: 400px;<br />
-        border: 1px solid #ddd;<br />
-        <div class="width-hight-know2">
-            position: absolute;<br />
-            height: 200px;<br />
-            width: 260px;<br />
-            background: pink;<br />
-            top: 0px;<br />
-            left: 0px;<br />
-            right: 0px;<br />
-            bottom: 0px;<br />
-            margin: auto;<br />
-        </div>
-    </div>
-    <h3>未知内部盒子大小(兼容性不好)</h3>
-    <div class="box-die1">
-        position: relative;<br />
-        height: 400px;<br />
-        border: 1px solid #ddd;<br />
-        <div class="width-hight-no">
-            position: absolute;<br />
-            background: pink;<br />
-            top: 50%;<br />
-            left: 50%;<br />
-            transform: translate(-50%, -50%);<br />
-        </div>
-    </div>
-    <h1>使用flex(IE8 以下不兼容)</h1>
-    <h3>未知内部盒子大小</h3>
-    <div class="box-die2">
+    <h1>使用flex兼容性IE8以上，最外层样式：<br />
         display: flex;<br />
-        justify-content: center;<br />
-        align-items: center;<br />
-    </div>
-    <h1>table-cell （父级宽高有固定值）</h1>
-    <div class="table-cell">
-        display: table-cell;<br />
-        vertical-align: middle;<br />
-        text-align: center;<br />
-        width: 800px;<br />
-        height: 200px;<br />
-        background: green;<br />
-        <div class="inline-box">
-            display: inline-block;
-            background: pink;
+        justify-content: space-between;<br />
+        height: 100%;<br /></h1>
+    <div class="row-line-flex">
+        <div class="flex-left">
+            flex: 0 0 200px;<br />
+            height: 200px;<br />
+            background: burlywood;<br />
+        </div>
+        <div class="flex-center">
+            flex: 1;<br />
+            min-height: 400px;<br />
+            background: pink;<br />
+        </div>
+        <div class="flex-right">
+            flex: 0 0 200px;<br />
+            height: 200px;<br />
+            background: burlywood;<br />
         </div>
     </div>
 </body>
-
 
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让一个div消失在视野中</title>
+    <style>
+        .opacity-0 {
+            opacity: 0;
+        }
+
+        .display-none {
+            display: none;
+        }
+
+        .transform-scale {
+            transform: scale(0);
+        }
+
+        .visibility-hidden {
+            visibility: hidden
+        }
+
+        .overflow-hidden {
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>display:none（元素不显示也不占用位置）</h1>
+    xxx<div class="display-none">disaply:0</div>xxx
+    <h1> width: 0; height: 0; overflow: hidden;</h1>
+    xxx<div class="overflow-hidden">overflow-hidden</div>xxx
+    <h1>opacity:0（元素虽然不显示，但是会占用原来的位置，适用于占位的需求）</h1>
+    xxx<div class="opacity-0">opacity-0</div>xxx
+    <h1>transform: scale(0)（元素虽然不显示，但是会占用原来的位置，适用于占位的需求）</h1>
+    xxx<div class="transform-scale">opacity-0</div>xxx
+    <h1>visibility:hidden（元素虽然不显示，但是会占用原来的位置，适用于占位的需求）</h1>
+    xxx<div class="visibility-hidden">visibility-hidden</div>xxx
+
+</body>
+
+</html>
