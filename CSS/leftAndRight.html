@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左右固定，中间自适应</title>
+    <style>
+        .row-line-flex {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .flex-left,
+        .flex-right {
+            flex: 0 0 200px;
+            height: 200px;
+            background: burlywood;
+        }
+
+        .flex-center {
+            flex: 1;
+            min-height: 400px;
+            background: pink;
+        }
+
+        .row-line-position {
+            position: relative;
+        }
+
+        .position-left,
+        .position-right {
+            position: absolute;
+            top: 0;
+            width: 200px;
+            min-height: 200px;
+            background: plum;
+        }
+
+        .position-left {
+            left: 0
+        }
+
+        .position-right {
+            right: 0
+        }
+
+        .position-center {
+            margin: 0px 200px;
+            min-height: 400px;
+            background: powderblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>使用定位position,最外层样式 position: relative;</h1>
+    <div class="row-line-position">
+        <div class="position-left">
+            position: absolute;<br />
+            top: 0;<br />
+            width: 200px;<br />
+            min-height: 200px;<br />
+            background: plum;<br />
+            left: 0<br />
+        </div>
+        <div class="position-center">
+            margin: 0px 200px;<br />
+            min-height: 400px;<br />
+            background: powderblue;<br />
+        </div>
+        <div class="position-right">
+            position: absolute;<br />
+            top: 0;<br />
+            width: 200px;<br />
+            min-height: 200px;<br />
+            background: plum;<br />
+            right: 0<br />
+        </div>
+    </div>
+    <h1>使用flex兼容性IE8以上，最外层样式：<br />
+        display: flex;<br />
+        justify-content: space-between;<br />
+        height: 100%;<br /></h1>
+    <div class="row-line-flex">
+        <div class="flex-left">
+            flex: 0 0 200px;<br />
+            height: 200px;<br />
+            background: burlywood;<br />
+        </div>
+        <div class="flex-center">
+            flex: 1;<br />
+            min-height: 400px;<br />
+            background: pink;<br />
+        </div>
+        <div class="flex-right">
+            flex: 0 0 200px;<br />
+            height: 200px;<br />
+            background: burlywood;<br />
+        </div>
+    </div>
+</body>
+
+</html>
