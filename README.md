@@ -90,3 +90,33 @@ leader说：你使用react开发，样式管理使用什么
 前端小月月：第二种，因为CCS选择器从右向左查询，第一种需要找到所有的a标签,再找box下所有a。
 
 # 剧本之JavaScript场
+
+## leader说：css比较简单，咱们再说说JavaScript的问题吧
+leader在电脑下拿出来一个面试题
+说下这个的输出结果是什么？
+```javascript
+       var _a = 0,
+            _b = 0;
+        function A(_a) {
+            A = function (_b) {
+                alert(_a + _b++)
+            }
+            alert(_a++)
+        }
+        A(1) 
+        A(2) 
+```
+
+小月月进行了以下的思考🤔
+```javascript
+ var _a = 0,_b = 0
+    function A(_a) { //1.执行A(1),_a=1
+        A = function (_b) {//2. 在执行完A(1),A以后的赋值指向这里
+            alert(_a + _b++)// _a + _b++=1 (_b++，先运算后赋值)
+        }
+        alert(_a++)//执行_a++先运算后赋值，下次使用时_a=2
+    }
+    A(1) //1
+    A(2) //4 执行function(_b),此时没有a的值，在作用域上下文里找_a=2,执行_a+_b++=2+2=4
+```
+最终得出结论` “1” “4”`

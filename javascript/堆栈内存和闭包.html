@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>关于堆栈内存和闭包的作用</title>
+
+</head>
+
+<body>
+    <p>堆：存储基本类型值的空间</p>
+    <p>栈：存储基本类型值和指定代码环境</p>
+    <textarea name="堆栈" id="" cols="80" rows="30">
+    let a = {},
+    b = 0,
+    c = '0'
+    a[b] = '我是b的0'
+    a[c] = '我是c的’0‘'//----属性值不能重复，数字属性名==字符串属性名
+    console.log("a[b]", a[b])//---a[b]被a[c]的数据替换掉了
+    //我是c的’0‘
+
+
+    let aa = {},
+        bb = Symbol('1'),//Symbol是创建唯一值的Symbol('1')!=Symbol('1')
+        cc = Symbol('1')
+    aa[bb] = '我是bb'
+    aa[cc] = '我是cc'
+    console.log("aa[bb]", aa[bb])
+    console.log("aa", aa)
+    //aa[bb] 我是bb
+    //aa {Symbol(1): "我是bb", Symbol(1): "我是cc"}
+
+
+    let aaa = {}, bbb = { n: '1' }, ccc = { m: '2' }
+    aaa[bbb] = '我是bbb'//bbb={n:'1'}会被.toString()转化成"[object Object]"
+    aaa[ccc] = '我是ccc'//ccc={n:'1'}会被.toString()转化成"[object Object]"
+    console.log("aaa[bbb]", aaa[bbb])
+    // aaa[bbb] 我是ccc
+
+    </textarea>
+    <script>
+        let a = {},
+            b = 0,
+            c = '0'
+        a[b] = '我是b的0'
+        a[c] = '我是c的’0‘'
+        console.log("a[b]", a[b])
+        //我是c的’0‘
+        let aa = {},
+            bb = Symbol('1'),
+            cc = Symbol('1')
+        aa[bb] = '我是bb'
+        aa[cc] = '我是cc'
+        console.log("aa[bb]", aa[bb])
+        console.log("aa", aa)
+
+        let aaa = {}, bbb = { n: '1' }, ccc = { m: '2' }
+        aaa[bbb] = '我是bbb'
+        aaa[ccc] = '我是ccc'
+        console.log("aaa[bbb]", aaa[bbb])
+    </script>
+    <p> 闭包：闭包就是能够读取其他函数内部变量的函数</p>
+    <textarea name="闭包" id="" cols="140" rows="8">
+        var test = (function (i) {// 3.test=的是函数执行即alert(i *= 2)的结果alert(4) i会形成执行上下文
+            return function () {  // 1.function是引用类型 存到堆里alert(i *= 2)的代码字符，作为prototype存储length即形参个数，作为对象存储键值对
+                alert(i *= 2)//2. alert出时需要把内容处理toString  '4'
+            }
+        })(2)
+        test(5) test的执行上下文 由于在return function() 没有i，则去上级作用域链寻找就是 i=2 执行i*=2即 4 ，没有被其他地方使用会被销毁，而上级i的不会被销毁
+    </textarea>
+
+    <!-- <script> 
+        var test = (function (i) {
+            return function () {  
+                alert(i *= 2)
+            }
+        })(2)
+        test(5) 
+    </script>-->
+    <p> 作用上下文替换问题：关注点是变量替换，执行顺序和闭包</p>
+    <textarea name="闭包2" id="" cols="140" rows="10">
+    var _a = 0,_b = 0
+    function A(_a) { //1.执行A(1),_a=1
+        A = function (_b) {//2. 在执行完A(1),A以后的赋值指向这里
+            alert(_a + _b++)// _a + _b++=1 (_b++，先运算后赋值)
+        }
+        alert(_a++)//执行_a++先运算后赋值，下次使用时_a=2
+    }
+    A(1) //1
+    A(2) //4 执行function(_b),此时没有a的值，在作用域上下文里找_a=2,执行_a+_b++=2+2=4
+    </textarea>
+
+    <!-- <script>
+        var _a = 0,
+            _b = 0;
+        function A(_a) {
+            A = function (_b) {
+                alert(_a + _b++)
+            }
+            alert(_a++)
+        }
+        A(1) 
+        A(2) 
+    </script> -->
+
+</body>
+
+</html>
