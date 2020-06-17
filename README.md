@@ -58,11 +58,29 @@ leader说：你使用react开发，样式管理使用什么
 > 如果是面试（笔试的话）https://github.com/XinYueXiao/interviewHighlights/tree/master/CSS/divhidden.html
 
 ## leader问：请说明z-index的工作原理，适用范围
+前端小月月说：z-index仅适用于定位元素，就是position为`relative`、`absolute`或者`fixed`，盒子的z-index越大，就越在上面。未定义时，后来者居上，在之前的项目中也使用比较多，像是查号导号的选号车，和淘宝的购物车差不多，一个选择的是账号一个是商品
 
 ## leader问：谈谈你对html5的理解
 
+前端小月月说：
+
+- HTML5是最新的第5代HTML标准，提供了丰富的媒体支持，还有媒体类语义化标签，支持跨平台使用
+- 拥有多个新表单input输入类型，这些新特性提供了更好的输入控制和验证
+- 支持Canvas和SVG，拖放等等
+
 ## leader问：如何让一个div里面的文字垂直居中,且该文字的大小根据屏幕的大小自适应
 
+前端小月月说：
+我在之前移动端的开发中有遇到相似问题，因为要考虑不同设备的屏幕大小不同，所以文字需要和屏幕大小自适应，通过JavaScript获取视窗的高度给html标签设置基础rem的基准值，在写文字样式时，直接写rem的值就好了
+
+```javascript
+        //获取视窗高度
+        let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        //获取html
+        let htmlDom = document.getElementsByTagName('html')[0]
+        //rem的基准值
+        htmlDom.style.fontSize = htmlWidth / 10 + 'px'
+```
 ## leader问：不考虑其他因素,下面哪种的渲染性能比较高?
 
 ```css
@@ -70,3 +88,5 @@ leader说：你使用react开发，样式管理使用什么
     a{  }
 ```
 前端小月月：第二种，因为CCS选择器从右向左查询，第一种需要找到所有的a标签,再找box下所有a。
+
+# 剧本之JavaScript场
