@@ -92,7 +92,7 @@ leader说：你使用react开发，样式管理使用什么
 # 剧本之JavaScript场
 
 ## leader说：css比较简单，咱们再说说JavaScript的问题吧
-leader在电脑下拿出来一个面试题
+leader在卡片盒子抽出一个面试题
 说下这个的输出结果是什么？
 ```javascript
        var _a = 0,
@@ -120,3 +120,67 @@ leader在电脑下拿出来一个面试题
     A(2) //4 执行function(_b),此时没有a的值，在作用域上下文里找_a=2,执行_a+_b++=2+2=4
 ```
 最终得出结论` “1” “4”`
+
+## leader说:看来你对堆栈有些理解的,那你说一下`深浅克隆`吧
+
+小月月回答：
+- 浅克隆只会克隆克隆对象本身，基本数据类型，则会直接复制对应的值，如果是引用类型，赋值的是地址，如果改变复制后的值，会改变原数据的的值，想要实现浅克隆可以直接使用ES6的结构语法即`let obj2 = { ...obj }`也可以使用循环遍历结合`hasOwnProperty`来实现代码如下：
+
+```javascript
+ let obj = {
+            a: 100,
+            b: [10, 20, 30],
+            c: { x: 10 },
+            d: /^\d+$/
+        }
+
+        //浅克隆
+        let obj1 = {}
+        for (let key in obj) {
+            if (!obj.hasOwnProperty(key)) break;
+            obj1[key] = obj[key]
+        }
+        obj1.c.x = 444
+        console.log("obj1", obj1)
+        console.log("obj", obj)// obj1.c.x = 444后obj.c.x也会变成444
+```
+![浅拷贝的输出]('../javascript/copyShallow.jpg' "浅拷贝的输出")
+- 深拷贝，是把对象赋值给对应的变量，是拷贝对象各个层级的属性，会产生一个新的地址，
+- 简单的深克隆可以使用`let obj3 = JSON.parse(JSON.stringify(obj))`,
+- 但这个方法会有一些问题，例如：
+  - 处理正则表达式和函数是会直接处理成`{}`,
+  - 处理时间函数`new Date()`是会处理成字符串
+![深拷贝的JSON.parse(JSON.stringify(obj))]('../javascript/jsonParse.jpg' "深拷贝的JSON.parse(JSON.stringify(obj))")
+- 如果要解决这个问题还是要使用递归来实现
+```javascript
+        //深克隆
+        let obj3 = JSON.parse(JSON.stringify(obj)) //函数和正则在被JSON.stringify后都会变成{},new Date会变成字符串
+        //递归
+        console.log("obj3", obj3)
+function deepClone(obj) {
+            //如果是空直接返回null
+            if (obj == 'null') return null
+            //如果不是对像，则返回对应值
+            if (typeof obj !== 'object') return obj
+            //如果是正则则返回新的正则,或者使用Object.prototype.toString.call()判断类型值
+            if (obj instanceof RegExp) {
+                return new RegExp(obj)//创建新实例,高出新地址
+            }
+            if (obj instanceof Date) {
+                return new Date(obj)
+            }
+            //不直接创建空对象的目的；克隆的结果和之前的保持相同的所属类
+            let objClone = new obj.constructor
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    objClone[key] = deepClone(obj[key]);//（如果是函数、对象）需递归，其他不需要
+                }
+            }
+            return objClone
+        }
+        let objDeep = deepClone(obj)
+        objDeep.c.x = 666
+        console.log("objDeep", objDeep)
+        console.log("obj", obj)
+```
+![深拷贝递归]('../javascript/deepClonepng.png' "深拷贝递归")
