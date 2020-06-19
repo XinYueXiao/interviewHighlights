@@ -145,13 +145,13 @@ leader在卡片盒子抽出一个面试题
         console.log("obj", obj)// obj1.c.x = 444后obj.c.x也会变成444
 ```
 
-![浅拷贝的输出]('https://ibb.co/b72mygJ' "浅拷贝的输出")
+![浅拷贝的输出]('/javascript/copyShallow.jpg' "浅拷贝的输出")
 - 深拷贝，是把对象赋值给对应的变量，是拷贝对象各个层级的属性，会产生一个新的地址，
 - 简单的深克隆可以使用`let obj3 = JSON.parse(JSON.stringify(obj))`,
 - 但这个方法会有一些问题，例如：
   - 处理正则表达式和函数是会直接处理成`{}`,
   - 处理时间函数`new Date()`是会处理成字符串
-![深拷贝的JSON.parse(JSON.stringify(obj))]('https://ibb.co/NyMpp5r' "深拷贝的JSON.parse(JSON.stringify(obj))")
+![深拷贝的JSON.parse(JSON.stringify(obj))]('/javascript/jsonParse.jpg' "深拷贝的JSON.parse(JSON.stringify(obj))")
 - 如果要解决这个问题还是要使用递归来实现
 ```javascript
         //深克隆
@@ -184,4 +184,4 @@ function deepClone(obj) {
         console.log("objDeep", objDeep)
         console.log("obj", obj)
 ```
-![深拷贝递归]('https://ibb.co/nLCmh4c' "深拷贝递归")
+![深拷贝递归]('/javascript/deepClonepng.png' "深拷贝递归")
