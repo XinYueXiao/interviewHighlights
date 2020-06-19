@@ -1,5 +1,5 @@
 > 图片看不到的可能是DNS污染了需要修改host配置
-window需要打开 sudo vi /etc/hosts  将以下内容插入即可（或通过查询IP并将其添加至系统hosts文件https://site.ip138.com/raw.Githubusercontent.com/）
+  - window需要打开 sudo vi /etc/hosts  将以下内容插入即可（或通过查询IP并将其添加至系统hosts文件https://site.ip138.com/raw.Githubusercontent.com/）
 > 
         52.74.223.119 github.com
         192.30.253.119 gist.github.com
@@ -20,7 +20,7 @@ window需要打开 sudo vi /etc/hosts  将以下内容插入即可（或通过�
         151.101.76.133 avatars7.githubusercontent.com
         151.101.76.133 avatars8.githubusercontent.com
 
-> MAC或win可以下载https://oldj.github.io/SwitchHosts/	修改Host
+> - MAC或win可以下载https://oldj.github.io/SwitchHosts/	修改Host
 
 #   前序
 前端小月月作者简介公交车,步行了N步后到达了面试公司  前端厂厂
