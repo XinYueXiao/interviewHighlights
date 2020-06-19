@@ -1,3 +1,27 @@
+> 图片看不到的可能是DNS污染了需要修改host配置
+window需要打开 sudo vi /etc/hosts  将以下内容插入即可（或通过查询IP并将其添加至系统hosts文件https://site.ip138.com/raw.Githubusercontent.com/）
+> 
+        52.74.223.119 github.com
+        192.30.253.119 gist.github.com
+        54.169.195.247 api.github.com
+        185.199.111.153 assets-cdn.github.com
+        151.101.76.133 raw.githubusercontent.com
+        151.101.108.133 user-images.githubusercontent.com
+        151.101.76.133 gist.githubusercontent.com
+        151.101.76.133 cloud.githubusercontent.com
+        151.101.76.133 camo.githubusercontent.com
+        151.101.76.133 avatars0.githubusercontent.com
+        151.101.76.133 avatars1.githubusercontent.com
+        151.101.76.133 avatars2.githubusercontent.com
+        151.101.76.133 avatars3.githubusercontent.com
+        151.101.76.133 avatars4.githubusercontent.com
+        151.101.76.133 avatars5.githubusercontent.com
+        151.101.76.133 avatars6.githubusercontent.com
+        151.101.76.133 avatars7.githubusercontent.com
+        151.101.76.133 avatars8.githubusercontent.com
+
+> MAC或win可以下载https://oldj.github.io/SwitchHosts/	修改Host
+
 #   前序
 前端小月月作者简介公交车,步行了N步后到达了面试公司  前端厂厂
 
@@ -145,13 +169,13 @@ leader在卡片盒子抽出一个面试题
         console.log("obj", obj)// obj1.c.x = 444后obj.c.x也会变成444
 ```
 
-![浅拷贝的输出]('/javascript/copyShallow.jpg' "浅拷贝的输出")
+![浅拷贝的输出](javascript/copyShallow.jpg)
 - 深拷贝，是把对象赋值给对应的变量，是拷贝对象各个层级的属性，会产生一个新的地址，
 - 简单的深克隆可以使用`let obj3 = JSON.parse(JSON.stringify(obj))`,
 - 但这个方法会有一些问题，例如：
   - 处理正则表达式和函数是会直接处理成`{}`,
   - 处理时间函数`new Date()`是会处理成字符串
-![深拷贝的JSON.parse(JSON.stringify(obj))]('/javascript/jsonParse.jpg' "深拷贝的JSON.parse(JSON.stringify(obj))")
+![深拷贝的JSON.parse(JSON.stringify(obj))](javascript/jsonParse.jpg)
 - 如果要解决这个问题还是要使用递归来实现
 ```javascript
         //深克隆
@@ -184,4 +208,4 @@ function deepClone(obj) {
         console.log("objDeep", objDeep)
         console.log("obj", obj)
 ```
-![深拷贝递归]('/javascript/deepClonepng.png' "深拷贝递归")
+![深拷贝递归](javascript/deepClonepng.png)
