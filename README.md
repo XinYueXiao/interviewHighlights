@@ -1,5 +1,5 @@
 > 图片看不到的可能是DNS污染了需要修改host配置
-  - window需要打开 sudo vi /etc/hosts  将以下内容插入即可（或通过查询IP并将其添加至系统hosts文件https://site.ip138.com/raw.Githubusercontent.com/）
+> - window需要打开 sudo vi /etc/hosts  将以下内容插入即可（或通过查询IP并将其添加至系统hosts文件https://site.ip138.com/raw.Githubusercontent.com/）
 > 
         52.74.223.119 github.com
         192.30.253.119 gist.github.com
