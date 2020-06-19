@@ -1,24 +1,24 @@
 > 图片看不到的可能是DNS污染了需要修改host配置
-> - window需要打开 sudo vi /etc/hosts  将以下内容插入即可（或通过查询IP并将其添加至系统hosts文件https://site.ip138.com/raw.Githubusercontent.com/）
+> - window需要打开 sudo vi /etc/hosts  将以下内容插入即可（或通过查询IP并将其添加至系统hosts文件https://www.ip138.com//）
 > 
-        52.74.223.119 github.com
-        192.30.253.119 gist.github.com
-        54.169.195.247 api.github.com
-        185.199.111.153 assets-cdn.github.com
-        151.101.76.133 raw.githubusercontent.com
-        151.101.108.133 user-images.githubusercontent.com
-        151.101.76.133 gist.githubusercontent.com
-        151.101.76.133 cloud.githubusercontent.com
-        151.101.76.133 camo.githubusercontent.com
-        151.101.76.133 avatars0.githubusercontent.com
-        151.101.76.133 avatars1.githubusercontent.com
-        151.101.76.133 avatars2.githubusercontent.com
-        151.101.76.133 avatars3.githubusercontent.com
-        151.101.76.133 avatars4.githubusercontent.com
-        151.101.76.133 avatars5.githubusercontent.com
-        151.101.76.133 avatars6.githubusercontent.com
-        151.101.76.133 avatars7.githubusercontent.com
-        151.101.76.133 avatars8.githubusercontent.com
+    52.74.223.119 github.com
+    192.30.253.119 gist.github.com
+    54.169.195.247 api.github.com
+    185.199.111.153 assets-cdn.github.com
+    151.101.76.133 raw.githubusercontent.com
+    151.101.108.133 user-images.githubusercontent.com
+    151.101.76.133 gist.githubusercontent.com
+    151.101.76.133 cloud.githubusercontent.com
+    151.101.76.133 camo.githubusercontent.com
+    151.101.76.133 avatars0.githubusercontent.com
+    151.101.76.133 avatars1.githubusercontent.com
+    151.101.76.133 avatars2.githubusercontent.com
+    151.101.76.133 avatars3.githubusercontent.com
+    151.101.76.133 avatars4.githubusercontent.com
+    151.101.76.133 avatars5.githubusercontent.com
+    151.101.76.133 avatars6.githubusercontent.com
+    151.101.76.133 avatars7.githubusercontent.com
+    151.101.76.133 avatars8.githubusercontent.com
 
 > - MAC或win可以下载https://oldj.github.io/SwitchHosts/	修改Host
 
