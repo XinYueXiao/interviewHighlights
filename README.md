@@ -58,7 +58,7 @@ leader说：你使用react开发，样式管理使用什么
 前端小月月说：这种需求在我之前的项目当中非常常见，刚开始的时候使用定位解决，后来随着CSS3的兴起，觉得Flex实现特别方便，尤其是在之前官网开发时在移动端使用起来也非常好，还有一种不常用的，是在看掘金的时候发现的，用display：table-cell也可以实现
 
 > 如果是面试（笔试的话）https://github.com/XinYueXiao/interviewHighlights/tree/master/CSS/centerMiddle.html
-![水平垂直居中](CSS/centerMiddle.jpg)
+![水平垂直居中CSS/centerMiddle.jpg](CSS/centerMiddle.jpg)
 
 ## leader说：那你说说`CSS3盒模型有哪些`
 
@@ -70,7 +70,7 @@ leader说：你使用react开发，样式管理使用什么
 前端小月月说：有兼容性要求的话可以使用float，定位实现，这两个需要结合`margin`设置位置，如果不考虑兼容性的话，用flex实现比较简单,直接设置最外层布局为`justify-content: space-between;`，设置左右盒子大小，中间盒子使用`flex:1`即可
 
 > 如果是面试（笔试的话）https://github.com/XinYueXiao/interviewHighlights/tree/master/CSS/leftAndRight.html
-![左右固定，中间自适应](CSS/leftAndRight.jpg)
+![左右固定，中间自适应CSS/leftAndRight.jpg](CSS/leftAndRight.jpg)
 
 ## leader问：看你有移动端开发经验，说一下`移动端响应式布局的方案`吧
 
@@ -81,7 +81,7 @@ leader说：你使用react开发，样式管理使用什么
 前端小月月说：需要看页面设计，如果消失后不占用原来div的位置可以使用简单的属性例如`display:none`，如果占用位置可以使用`visibility:hidden`、`transform: scale(0)`、`opacity:0`等,还有一些不常用的可以设置`width:0`，和`overflow:hidden`等
 
 > 如果是面试（笔试的话）https://github.com/XinYueXiao/interviewHighlights/tree/master/CSS/divhidden.html
-![div消失](CSS/divHidden.jpg)
+![div消失CSS/divHidden.jpg](CSS/divHidden.jpg)
 
 ## leader问：请说明z-index的工作原理，适用范围
 前端小月月说：z-index仅适用于定位元素，就是position为`relative`、`absolute`或者`fixed`，盒子的z-index越大，就越在上面。未定义时，后来者居上，在之前的项目中也使用比较多，像是查号导号的选号车，和淘宝的购物车差不多，一个选择的是账号一个是商品
@@ -171,13 +171,13 @@ leader在卡片盒子抽出一个面试题
         console.log("obj", obj)// obj1.c.x = 444后obj.c.x也会变成444
 ```
 
-![浅拷贝的输出](javascript/copyShallow.jpg)
+![浅拷贝的输出javascript/copyShallow.jpg](javascript/copyShallow.jpg)
 - 深拷贝，是把对象赋值给对应的变量，是拷贝对象各个层级的属性，会产生一个新的地址，
 - 简单的深克隆可以使用`let obj3 = JSON.parse(JSON.stringify(obj))`,
 - 但这个方法会有一些问题，例如：
   - 处理正则表达式和函数是会直接处理成`{}`,
   - 处理时间函数`new Date()`是会处理成字符串
-![深拷贝的JSON.parse(JSON.stringify(obj))](javascript/jsonParse.jpg)
+![深拷贝的JSON.parse(JSON.stringify(obj))javascript/jsonParse.jpg](javascript/jsonParse.jpg)
 - 如果要解决这个问题还是要使用递归来实现
 ```javascript
         //深克隆
@@ -210,4 +210,4 @@ function deepClone(obj) {
         console.log("objDeep", objDeep)
         console.log("obj", obj)
 ```
-![深拷贝递归](javascript/deepClonepng.png)
+![深拷贝递归javascript/deepClonepng.png](javascript/deepClone.png)
