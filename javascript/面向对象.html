@@ -83,11 +83,11 @@
                 console.log(3)
             } //箭头函数不能被new
         }
-        A()
-        Func.A()
-        Func().A()
-        new Func.A()
-        new Func().A()
+        A()//1
+        Func.A()//1
+        Func().A()//重新赋值A，指向赋值后的Window.A=>2
+        new Func.A()//指向window.A=>1
+        new Func().A()//指向箭头函数A=>3
         new new Func().A()
 
     </script>
