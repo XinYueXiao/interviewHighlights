@@ -258,3 +258,60 @@ function deepClone(obj) {
         console.log('a == 1 && a == 2 && a == 3');
     }
 ```
+
+> 补充：关于面向对象的笔试题
+> ```javascript
+>   function Foo() {
+        getName = function () {
+            console.log(1);
+
+        }
+        return this
+        }
+        Foo.getName = function () {
+            console.log(2);
+        }
+        Foo.prototype.getName = function () {
+            console.log(3);
+        }
+        var getName = function () {
+            console.log(4);
+        }
+        function getName() {
+            console.log(5)
+        }
+        Foo.getName()
+        getName()
+        Foo().getName()
+        getName()
+        new Foo.getName()
+        new Foo().getName()
+        new new Foo().getName()
+> ```
+> 解析
+![面向对象解析/javascript/funcNew.jpg](/javascript/funcNew.jpg)
+> 关于同步异步的笔试题
+> ```javascript
+>  async function async1() {
+            console.log('async1 start')
+            await async2()
+            console.log('async1 end')
+        }
+        async function async2() {
+            console.log('async2')
+        }
+        console.log('script start');
+        setTimeout(function () {
+            console.log('setTimeout');
+        }, 0);
+        async1()
+        new Promise(function (resolve) {
+            console.log('promise1');
+            resolve()
+        }).then(function () {
+            console.log('promise2');
+        })
+        console.log('script end');
+> ```
+> 解析
+![同步异步解析/javascript/asyncLoop.jpg](/javascript/asyncLoop.jpg)
