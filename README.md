@@ -289,7 +289,9 @@ function deepClone(obj) {
         new new Foo().getName()
 ```
 > 解析
+
 ![面向对象解析/javascript/funcNew.jpg](/javascript/funcNew.jpg)
+
 > 关于同步异步的笔试题
 ```javascript
         async function async1() {
@@ -314,4 +316,5 @@ function deepClone(obj) {
         console.log('script end');
 ```
 > 解析
+
 ![同步异步解析/javascript/asyncLoop.jpg](/javascript/asyncLoop.jpg)
