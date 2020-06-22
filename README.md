@@ -261,7 +261,7 @@ function deepClone(obj) {
 
 > 补充：关于面向对象的笔试题
 > ```javascript
->   function Foo() {
+        function Foo() {
         getName = function () {
             console.log(1);
 
@@ -292,7 +292,7 @@ function deepClone(obj) {
 ![面向对象解析/javascript/funcNew.jpg](/javascript/funcNew.jpg)
 > 关于同步异步的笔试题
 > ```javascript
->  async function async1() {
+        async function async1() {
             console.log('async1 start')
             await async2()
             console.log('async1 end')
