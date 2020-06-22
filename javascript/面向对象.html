@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面向对象</title>
+</head>
+
+<body>
+    <textarea name="面向对象" id="" cols="100" rows="30">
+
+
+        function Foo() {
+            getName = function () {
+                console.log(1);
+
+            }
+            return this
+        }
+        Foo.getName = function () {
+            console.log(2);
+        }
+        Foo.prototype.getName = function () {
+            console.log(3);
+        }
+        var getName = function () {
+            console.log(4);
+        }
+        function getName() {
+            console.log(5)
+        }
+        Foo.getName()
+        getName()
+        Foo().getName()
+        getName()
+        new Foo.getName()
+        new Foo().getName()
+        new new Foo().getName()
+    </textarea>
+    <img src='./funcNew.jpg' />
+    <script>
+        function Foo() {
+            getName = function () {//变量声明提升↑↑↑
+                console.log(1);
+            }
+            return this
+        }
+        Foo.getName = function () {
+            console.log(2);
+        }
+        Foo.prototype.getName = function () {
+            console.log(3);
+        }
+        var getName = function () {
+            console.log(4);//变量赋值getName=>4
+        }
+        function getName() {
+            console.log(5)//变量声明提升↑↑↑
+        }
+
+        Foo.getName()//2=>Foo.getName=>func=>2
+        getName()//变量去赋值后结果=>4
+        Foo().getName()//先执行Foo(),getName重新赋值()=>1,Foo返回为this,即window.getName()=>1
+        getName()//因执行了上面的函数，导致getName重新赋值=>1 
+        new Foo.getName()//先执行Foo.getName=>func=>2,new func=>2,即为func=>2
+        new Foo().getName()//先执行new Foo()实例化，获取的方法为prototype上的getName,即为func=>3
+        new new Foo().getName()//先执行 new Foo().getName(),由上可知为func=>3,new func=>3即为func=>3
+    </script>
+</body>
+
+</html>

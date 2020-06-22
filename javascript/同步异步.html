@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同步异步</title>
+</head>
+
+<body>
+    <textarea name="面向对象" id="" cols="100" rows="30">
+        async function async1() {
+            console.log('async1 start')
+            await async2()
+            console.log('async1 end')
+        }
+        async function async2() {
+            console.log('async2')
+        }
+        console.log('script start');
+        setTimeout(function () {
+            console.log('setTimeout');
+        }, 0);
+        async1()
+        new Promise(function (resolve) {
+            console.log('promise1');
+            resolve()
+        }).then(function () {
+            console.log('promise2');
+        })
+        console.log('script end');
+    </textarea>
+    <img src='./asyncLoop.jpg' />
+    <script>
+        //浏览器是多线程的，js是单线程，浏览器只给了一个线程渲染js
+        //事件队列
+        async function async1() { //创建函数async1
+            console.log('async1 start')
+            await async2()
+            console.log('async1 end')
+        }
+        async function async2() { //创建函数async2
+            console.log('async2')
+        }
+
+        console.log('script start'); //开始输出 script start
+        setTimeout(function () {  //创建定时器，放入事件列表一个宏任务定时器
+            console.log('setTimeout');
+        }, 0);
+        async1()//立即输出'async1 start'执行async2输出'async2'，等待async执行完，async1 end内放入微任务
+        new Promise(function (resolve) {//new 的func立即执行，输出'promise1'执行resolve或者reject,等待执行完，.then/.catch内放入微任务
+            console.log('promise1');
+            resolve()
+        }).then(function () {
+            console.log('promise2');
+        })
+        console.log('script end');//立即执行，输出'script end'
+        //之后开始event loop
+        //先执行微任务async1 end，promise1在执行宏任务 setTimeout
+        // script start
+        // async1 start
+        // async2
+        // promise1
+        // script end
+        // async1 end
+        // promise2
+        // setTimeout
+    </script>
+</body>
+
+</html>
