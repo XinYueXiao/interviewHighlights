@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a=?</title>
+</head>
+
+<body>
+    <script>
+        //var a=?
+        // if (a == 1 && a == 2 && a == 3) {
+        //     console.log(1);
+        // }
+        //==数据类型不一样转换规则
+        //1、对象==字符串 对象。toString()变成字符串
+        //2、null==undefined 相等，但是和其他值比较就不相等了
+        //3、NaN!=NaN
+        //4、剩下的都转换为数字
+        //toString()
+        // var a = {
+        //     i: 0,
+        //     toString() {
+        //         return ++this.i
+        //     }
+        // }
+        //数据劫持
+        // var i = 0
+        // Object.defineProperty(window, 'a', {
+        //     get() {
+        //         return ++i
+        //     }
+        // })
+        //数组解决
+        var a = [1, 2, 3]
+        a.toString = a.shift
+        if (a == 1 && a == 2 && a == 3) {
+            console.log('a == 1 && a == 2 && a == 3');
+        }
+
+    </script>
+</body>
+
+</html>

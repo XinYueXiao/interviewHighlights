@@ -66,6 +66,30 @@
         new Foo.getName()//先执行Foo.getName=>func=>2,new func=>2,即为func=>2
         new Foo().getName()//先执行new Foo()实例化，获取的方法为prototype上的getName,即为func=>3
         new new Foo().getName()//先执行 new Foo().getName(),由上可知为func=>3,new func=>3即为func=>3
+
+        console.log('====================================');
+        function A() {
+            console.log(1)
+        }
+        function Func() {
+            A = function () {
+                console.log(2)
+            }
+            return this
+        }
+        Func.A = A
+        Func.prototype = {
+            A: () => {
+                console.log(3)
+            } //箭头函数不能被new
+        }
+        A()
+        Func.A()
+        Func().A()
+        new Func.A()
+        new Func().A()
+        new new Func().A()
+
     </script>
 </body>
 

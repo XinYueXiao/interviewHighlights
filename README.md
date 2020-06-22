@@ -211,3 +211,50 @@ function deepClone(obj) {
         console.log("obj", obj)
 ```
 ![深拷贝递归javascript/deepClonepng.png](javascript/deepClone.png)
+## leader说:如果现有个变量a,a=什么时条件a==1&&a==2&&a=3成立
+```javascript
+ var a=?
+ if (a == 1 && a == 2 && a == 3) {
+    console.log('a == 1 && a == 2 && a == 3');
+ }
+```
+小月月回答在在==是会进行数据转换，数据转换规则是
+- 对象==字符串，对象会执行`.toString()`方法变成字符串
+- null==undefined，和其他值不相等
+- NaN!=NaN
+- 其他都会转化为数字
+
+> 这里的a可以同时等于3个数，可以假设a={}，在进行==时会执行`.toString`,在此处重写String
+```javascript
+ var a = {
+            i: 0,
+            toString() {
+                return ++this.i
+            }
+        }
+ if (a == 1 && a == 2 && a == 3) {
+            console.log('a == 1 && a == 2 && a == 3');
+ }
+```
+> 使用数据劫持
+```javaScript
+   var i = 0
+   Object.defineProperty(window, 'a', {
+       //get不能再次获取当前属性
+       get() {
+   return ++i
+       }
+   })
+   if (a == 1 && a == 2 && a == 3) {
+       console.log('a == 1 && a == 2 && a == 3');
+   }
+```
+> 使用数据
+```javascript
+    //数组解决
+    var a = [1, 2, 3]
+    a.toString = a.shift
+    if (a == 1 && a == 2 && a == 3) {
+        console.log('a == 1 && a == 2 && a == 3');
+    }
+```
