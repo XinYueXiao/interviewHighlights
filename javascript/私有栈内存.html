@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私有栈内存</title>
+</head>
+
+<body>
+    <script>
+        console.log(a, b);//undefined undefined
+        var a = 20, b = 20 //=>var a=20 ;b=20
+        function fn() {
+            console.log(a, b);//undefined 20
+            var a = b = 30//等价于 var a=30 ; b=30即给全局的b=20改为了b=30(私有栈内存中的代码执行时，如果遇到一个变量：首先看是否是自己的，用自己的，不是用上层，找到拿来用，没有可能报错)
+            console.log(a, b);//30 30
+        }
+        fn()
+        console.log(a, b);//20 30
+
+    </script>
+</body>
+
+</html>
