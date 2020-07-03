@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弧线</title>
+</head>
+
+<body>
+    <canvas id='canvas' style="border:1px solid #000"></canvas>
+    <script>
+        /** @type {HTMLCanvasElement} */
+        // var canvas = document.getElementById('canvas')
+        // canvas.width = 1000
+        // canvas.height = 800
+        // var context = canvas.getContext("2d")
+        // context.lineWidth = 5
+        // context.strokeStyle = '#005588'
+        // for (let i = 0; i < 10; i++) {
+        //     context.beginPath()
+        //     context.arc(50 + i * 100, 60, 30, 0, 2 * Math.PI * (i + 1) / 10)
+        //     context.closePath()
+        //     context.stroke()
+        // }
+        // for (let i = 0; i < 10; i++) {
+        //     context.beginPath()
+        //     context.arc(50 + i * 100, 180, 30, 0, 2 * Math.PI * (i + 1) / 10)
+        //     context.stroke()
+        // }
+        // for (let i = 0; i < 10; i++) {
+        //     context.beginPath()
+        //     context.arc(50 + i * 100, 280, 30, 0, -2 * Math.PI * (i + 1) / 10)
+        //     context.stroke()
+        // }
+        // for (let i = 0; i < 10; i++) {
+        //     context.beginPath()
+        //     context.arc(50 + i * 100, 380, 30, 0, -2 * Math.PI * (i + 1) / 10)
+        //     context.closePath()
+        //     context.stroke()
+        // }
+        // for (let i = 0; i < 10; i++) {
+        //     context.beginPath()
+        //     context.arc(50 + i * 100, 480, 30, 0, -2 * Math.PI * (i + 1) / 10)
+        //     context.closePath()
+        //     context.stroke()
+        //     context.fill()
+        // }
+        var ball = { x: 512, y: 100, r: 20, g: 2, vx: 4, vy: 0, color: '#f0f' }
+
+        window.onload = function () {
+            var canvas = document.getElementById('canvas')
+            canvas.width = 1000
+            canvas.height = 800
+            var context = canvas.getContext("2d")
+            setInterval(() => {
+                render(context)
+                update()
+            }, 50);
+        }
+        function update() {
+            ball.x += ball.vx
+            ball.y += ball.vy
+            ball.vy += ball.g
+            if (ball.y >= 800 - ball.r) {
+                ball.y = 800 - ball.r
+                ball.vy = - ball.vy
+            }
+            if (ball.x >= 1000 - ball.r) {
+                ball.x = 1000 - ball.r
+                ball.vx = -ball.vx
+            }
+            if (ball.x <= ball.r) {
+                ball.x += ball.r
+                ball.vx = -ball.vx
+            }
+            if (ball.y <= ball.r) {
+                ball.y += ball.r
+                ball.vy = -ball.vy
+            }
+        }
+        function render(cxt) {
+            cxt.clearRect(0, 0, cxt.canvas.width, cxt.canvas.height)
+            cxt.fillStyle = ball.color
+            cxt.beginPath()
+            cxt.arc(ball.x, ball.y, ball.r, 0, 2 * Math.PI)
+            cxt.closePath()
+            cxt.fill()
+        }
+    </script>
+</body>
+
+</html>
