@@ -4,7 +4,8 @@ var CANVAS_HEIGHT = 768
 var RADIUS = 8
 var MARGIN_LEFT = 60
 var MARGIN_TOP = 30
-var endTime = new Date(2020, 7, 2, 4, 47, 52)//48小时内
+var endTime = new Date()//48小时内
+endTime.setTime(endTime.getTime() + 3600 * 1000)//倒计时
 var curShowTimeSeconds = 0
 var balls = []
 var colors = ["#33B5E5", "#0099CC", "#AA66CC", "#9933CC", "#99CC00", "#669900", '#FF6666', '#CCCCFF', '#FF6600', '#CC99CC']
